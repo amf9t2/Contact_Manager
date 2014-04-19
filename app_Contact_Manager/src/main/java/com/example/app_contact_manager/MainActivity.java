@@ -30,7 +30,7 @@ import java.util.ListIterator;
 public class MainActivity extends ActionBarActivity {
 
     EditText txtName,txtPhone,txtEmail,txtAddress;
-    List<Contact> lstConact= new ArrayList<Contact>();
+    List<Contact> lstContact= new ArrayList<Contact>();
     ListView lstViewContact;
 
     Button btnAdd;
@@ -100,7 +100,7 @@ public class MainActivity extends ActionBarActivity {
 
     public void addContact(String name,String phone, String email, String address)
     {
-        lstConact.add(new Contact(name,phone,email,address));
+        lstContact.add(new Contact(name,phone,email,address));
     }
     public void populateContactinlstViewContact()
     {
@@ -117,7 +117,7 @@ public class MainActivity extends ActionBarActivity {
        /** we have to create list item layout(Resources)*/
         public  ContactArrayAdapter ()
         {
-            super(MainActivity.this,R.layout.layout_res_contactitem,lstConact);
+            super(MainActivity.this,R.layout.layout_res_contactitem,lstContact);
         }
 
         @Override
@@ -126,7 +126,7 @@ public class MainActivity extends ActionBarActivity {
             if (view == null)
                 view = getLayoutInflater().inflate(R.layout.layout_res_contactitem,parent,false);
 
-            Contact objContact = lstConact.get(position);
+            Contact objContact = lstContact.get(position);
 
             TextView name = (TextView) view.findViewById(R.id.txtName_res);
             name.setText(objContact.get_name());
